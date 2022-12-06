@@ -53,14 +53,11 @@ assignment
   cd linux
   git status
  git remote -v 
-```
-![git remote -v](https://github.com/kondurunikhil/virtualisation_Ass_2/blob/main/images/git_remote_v.png)
-```
-cp /boot/config-5.15.0-1025-gcp ~/linux/.config
-```
 
 ```
-4) prepare the linux using make prepare command: <br />
+
+
+3) prepare the linux using make prepare command: <br />
 ```
 make prepare
 ```
@@ -79,51 +76,6 @@ sudo make -j 8 INSTALL_MOD_STRIP=1 modules_install
 8) Install linux kernal 
 ```
 sudo make -j 8 install
-```
-9)for Assignment 2 let's modify ~/linux/arch/x86/kvm/vmx/vmx.c  : <br />
-```
-  extern atomic_t total_exits_counter;
-    extern atomic64_t total_cup_cycles_counter;
-
-    static int vmx_handle_exit(struct kvm_vcpu *vcpu, fastpath_t exit_fastpath)
-    {
-        uint64_t start_time_counter, end_time_counter;
-        int ret;
-        arch_atomic_inc(&total_exits_counter);
-        start_time_counter = rdtsc();
-        ret = __vmx_handle_exit(vcpu, exit_fastpath);
-        end_time_stamp_counter = rdtsc();
-        arch_atomic64_add((end_time_counter - start_time_counter), &total_cup_cycles_counter);
-    }
-```
-10) for A2 requirement modify ~/linux/arch/x86/kvm/cpuid.c :
-```
-atomic_t total_exits_counter = ATOMIC_INIT(0);
-    EXPORT_SYMBOL(total_exits_counter);
-
-    atomic64_t total_cup_cycles_counter = ATOMIC64_INIT(0);
-    EXPORT_SYMBOL(total_cup_cycles_counter);
-
-    int kvm_emulate_cpuid(struct kvm_vcpu *vcpu)
-    {
-        u32 eax, ebx, ecx, edx;
-
-        if (cpuid_fault_enabled(vcpu) && !kvm_require_cpl(vcpu, 0))
-            return 1;
-
-        eax = kvm_rax_read(vcpu);
-        ecx = kvm_rcx_read(vcpu);
-
-        switch(eax) {
-            case 0x4FFFFFFC:
-                eax = arch_atomic_read(&total_exits_counter);
-                break;
-            case 0x4FFFFFFD:
-                ebx = (atomic64_read(&total_cup_cycles_counter) >> 32);;
-                ecx = (atomic64_read(&total_cup_cycles_counter) & 0xFFFFFFFF);
-                //printk(KERN_INFO "### Total CPU Exit Cycle Time(hi) in EBX = %u", ebx);
-                //printk(KERN_INFO "### Total CPU Exit Cycle Time(lo) in ECX = %u", ecx);
-                break;
 ```
 11) Build and install the modules again, then install the kernel  <br />
 ```
@@ -145,17 +97,20 @@ sudo reboot
 ```
   uname -a
 ```
-![install](!!!)
+![WhatsApp Image 2022-12-05 at 21 29 18](https://user-images.githubusercontent.com/68690234/205825091-9bebcee4-8944-442e-8708-00e324470529.jpeg)
+
 
 ```
   sudo adduser raviteja_kallepalli libvirt
   sudo getent group | grep libvirt 
 ```
-![getent](!!!!)
+![WhatsApp Image 2022-12-05 at 21 29 38](https://user-images.githubusercontent.com/68690234/205825331-21d41857-6718-41e4-8a63-b6f63de1c518.jpeg)
+
 ```
    sudo virsh list --all
 ```
-![getent](!!!!)
+![WhatsApp Image 2022-12-05 at 21 29 56](https://user-images.githubusercontent.com/68690234/205825392-ecaef2fe-e911-4e2a-8358-66e0aa4df7b5.jpeg)
+
 
 ```
    sudo systemctl status libvirtd 
@@ -170,7 +125,8 @@ wget https://releases.ubuntu.com/jammy/ubuntu-22.04.1-desktop-amd64.iso
 sudo mv ~/ubuntu-22.04.1-desktop-amd64.iso /var/lib/libvirt/images/
 sudo virt-manager
 ```   
-![getent](https://github.com/kondurunikhil/virtualisation_Ass_2/blob/main/images/virt-manager.png)
+![WhatsApp Image 2022-12-05 at 21 30 56](https://user-images.githubusercontent.com/68690234/205825684-e49e90b7-3374-4952-b15b-827bc7ecde97.jpeg)
+
 17) choose create a new virtual machine  and select the os downloaded ubuntu 22.04.1 
 ![innervm](https://github.com/kondurunikhil/virtualisation_Ass_2/blob/main/images/inner-vm.png)
 
