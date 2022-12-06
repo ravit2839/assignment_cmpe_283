@@ -46,13 +46,11 @@ assignment
 
 ### 2) Describe in detail the steps you used to complete the assignment.
 
-1) Went to https://github.com/torvalds/linux, forked the repo to my account <br />
+1) Goto https://github.com/torvalds/linux, fork the repo to my account <br />
 2) Clone it to VM  <br />
 ```
  git clone https://github.com/ravit2839/linux.git
-  cd linux
-  git status
- git remote -v 
+ cd linux
 
 ```
 
@@ -61,30 +59,30 @@ assignment
 ```
 make prepare
 ```
-5) Build all the modules that goes into the linux kernel:<br />
+4) Build all the modules that goes into the linux kernel:<br />
 ```
 make -j 8 modules
 ```
-6)build the linux kernel itself:  <br />
+5)build the linux kernel itself:  <br />
 ```
 make -j 8
 ```
-7) After the modules and kernel is built, we can package them into a format that suitable for booting inside our VM <br />
+6) After the modules and kernel is built, we can package them into a format that suitable for booting inside our VM <br />
 ```
 sudo make -j 8 INSTALL_MOD_STRIP=1 modules_install
 ```
-8) Install linux kernal 
+7) Install linux kernal 
 ```
 sudo make -j 8 install
 ```
-11) Build and install the modules again, then install the kernel  <br />
+8) Build and install the modules again, then install the kernel  <br />
 ```
      make -j 8 modules
      sudo make -j 8 INSTALL_MOD_STRIP=1 modules_install
      sudo make -j 4 install 
 ```
 
-12) As there are no errors, we can create a inner VM inside our current VM,
+9) As there are no errors, we can create a inner VM inside our current VM,
 but first we need to install some extra tools for KVM 
 ```
 sudo apt-get install cpu-checker
@@ -93,7 +91,7 @@ sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
 sudo kvm-ok
 sudo reboot
 ```
-13) Now we need to authorize a vm users for the inner VM, and verify our VM functionalities:
+10) Now we need to authorize a vm users for the inner VM, and verify our VM functionalities:
 ```
   uname -a
 ```
@@ -117,7 +115,7 @@ sudo reboot
 ```   
 ![main1](https://user-images.githubusercontent.com/68690234/205826257-622b8fb7-e77b-4b3d-bf9c-09d974575d77.png)
 
-16) As everything is functioning properly, the output returns an active (running) status.
+11) As everything is functioning properly, the output returns an active (running) status.
 Use virt-manager to create  inner VM along with the GUI :
 ```
 cd ~
@@ -127,8 +125,8 @@ sudo virt-manager
 ```   
 ![WhatsApp Image 2022-12-05 at 21 30 56](https://user-images.githubusercontent.com/68690234/205825684-e49e90b7-3374-4952-b15b-827bc7ecde97.jpeg)
 
-17) choose create a new virtual machine  and select the os downloaded ubuntu 22.04.1 
+12) choose create a new virtual machine  and select the os downloaded ubuntu 22.04.1 
 ![main2](https://user-images.githubusercontent.com/68690234/205826497-c7743c32-4349-4d07-9488-ac8d312d0a77.png)
 
-18) we can perform our A2 exit handling testing on the newly installed inner-VM:
-![main3](https://user-images.githubusercontent.com/68690234/205827291-3f08781b-30fd-4ca0-b6fe-c0f7eaf3fde3.png)
+13) we can perform our A2 exit handling testing on the newly installed inner-VM:
+![main3](https://user-images.githubusercontent.com/68690234/205827981-9fb45936-bbfe-4cca-a05f-58ae1c5333c6.png)
