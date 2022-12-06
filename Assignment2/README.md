@@ -79,7 +79,7 @@ sudo make -j 8 install
 ```
      make -j 8 modules
      sudo make -j 8 INSTALL_MOD_STRIP=1 modules_install
-     sudo make -j 4 install 
+     sudo make -j 8 install 
 ```
 
 9) As there are no errors, we can create a inner VM inside our current VM,
@@ -125,8 +125,8 @@ sudo virt-manager
 ```   
 ![WhatsApp Image 2022-12-05 at 21 30 56](https://user-images.githubusercontent.com/68690234/205825684-e49e90b7-3374-4952-b15b-827bc7ecde97.jpeg)
 
-12) choose create a new virtual machine  and select the os downloaded ubuntu 22.04.1 
+12) choose create a new virtual machine  and select the OS downloaded ubuntu 22.04.1 
 ![main2](https://user-images.githubusercontent.com/68690234/205826497-c7743c32-4349-4d07-9488-ac8d312d0a77.png)
 
-13) we can perform our A2 exit handling testing on the newly installed inner-VM:
+13) we performed tests on the newly installed inner-VM:
 ![main3](https://user-images.githubusercontent.com/68690234/205827981-9fb45936-bbfe-4cca-a05f-58ae1c5333c6.png)
