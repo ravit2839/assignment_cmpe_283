@@ -83,7 +83,7 @@ sudo make -j 8 install
      sudo make -j 8 INSTALL_MOD_STRIP=1 modules_install
      sudo make -j 4 install 
 ```
-![install](!!!)
+
 12) As there are no errors, we can create a inner VM inside our current VM,
 but first we need to install some extra tools for KVM 
 ```
@@ -115,7 +115,7 @@ sudo reboot
 ```
    sudo systemctl status libvirtd 
 ```   
-![getent](!!!!)
+![main1](https://user-images.githubusercontent.com/68690234/205826257-622b8fb7-e77b-4b3d-bf9c-09d974575d77.png)
 
 16) As everything is functioning properly, the output returns an active (running) status.
 Use virt-manager to create  inner VM along with the GUI :
@@ -128,7 +128,7 @@ sudo virt-manager
 ![WhatsApp Image 2022-12-05 at 21 30 56](https://user-images.githubusercontent.com/68690234/205825684-e49e90b7-3374-4952-b15b-827bc7ecde97.jpeg)
 
 17) choose create a new virtual machine  and select the os downloaded ubuntu 22.04.1 
-![innervm](https://github.com/kondurunikhil/virtualisation_Ass_2/blob/main/images/inner-vm.png)
+![main2](https://user-images.githubusercontent.com/68690234/205826497-c7743c32-4349-4d07-9488-ac8d312d0a77.png)
 
 18) we can perform our A2 exit handling testing on the newly installed inner-VM:
-![output](https://github.com/kondurunikhil/virtualisation_Ass_2/blob/main/images/out_put.png)
+![main3](https://user-images.githubusercontent.com/68690234/205827291-3f08781b-30fd-4ca0-b6fe-c0f7eaf3fde3.png)
