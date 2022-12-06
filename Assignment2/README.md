@@ -24,13 +24,10 @@ assignment
 * Verify proper output
 
 ## Questions
-### 1) Team Members
 
-#### Naga Venkata Sri Ram Vemparala - 016001596:
-* Compiled the code with modifications
-* Made changes to fix the errors occurred while compiling
-* Created nested VM to run the test program
-* Created documentation.
+
+
+### 1) Team Members
 
 #### Raviteja Kallepalli - 015998853:
 * Build Linux kernel and booted nested vm
@@ -38,6 +35,14 @@ assignment
 * Looked up how to perform testing for kernel code
 * Wrote a test program
 * Updated documentation
+
+#### Naga Venkata Sri Ram Vemparala - 016001596:
+* Compiled the code with modifications
+* Made changes to fix the errors occurred while compiling
+* Created nested VM to run the test program
+* Created documentation.
+
+
 
 ### 2) Describe in detail the steps you used to complete the assignment.
 
