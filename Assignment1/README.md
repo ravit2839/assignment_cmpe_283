@@ -1,6 +1,6 @@
 ## Questions for assignment01:
 
-Team Member: Ravi Teja Kallepalli
+Team Member: Ravi Teja Kallepalli (OWN)
 
  Steps for  to finish the assignment:  
   1. Configuare a GCP vm that has the VMX enable
